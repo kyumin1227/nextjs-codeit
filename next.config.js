@@ -11,6 +11,17 @@ const nextConfig = {
       },
     ];
   },
+  // 외부 이미지 사용을 위한 설정
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com", // host 주소
+        port: "",
+        pathname: "/codeitmall/**", // 상세 주소 (** 은 하위 모든 파일 및 폴더 포함)
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
