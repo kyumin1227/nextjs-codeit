@@ -3,6 +3,7 @@ import SearchForm from "@/components/SearchForm";
 import { useRouter } from "next/router";
 import axios from "@/lib/axios";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export default function Search() {
   const [products, setProducts] = useState([]);
@@ -21,6 +22,9 @@ export default function Search() {
 
   return (
     <>
+      <Head>
+        <title>{q} 검색 결과</title>
+      </Head>
       <h1>Search</h1>
       <SearchForm defaultValue={q} />
       <div>Search {q}</div>
