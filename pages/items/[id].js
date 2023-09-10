@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   return {
     paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
     // 정적 생성 하지 않은 경로 허용 여부
-    fallback: false,
+    fallback: true,
   };
 }
 
