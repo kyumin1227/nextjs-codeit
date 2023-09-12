@@ -1,9 +1,10 @@
 import dbConnect from "@/db/dbConnect";
+import shortLink from "@/db/models/ShortLink";
 import mongoose from "mongoose";
 
 export default async function handler(req, res) {
   await dbConnect();
-  console.log(mongoose.connection.readyState);
+  console.log(shortLink);
 
   switch (req.method) {
     case "GET":
