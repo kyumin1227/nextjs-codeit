@@ -1,17 +1,19 @@
 import dbConnect from "@/db/dbConnect";
-import shortLink from "@/db/models/ShortLink";
+import ShortLink from "@/db/models/ShortLink";
 import mongoose from "mongoose";
 
 export default async function handler(req, res) {
   await dbConnect();
-  console.log(shortLink);
+  console.log(ShortLink);
 
   switch (req.method) {
+    case "POST":
+      const newShortLink = await ShortLink.create(req.body); // mongoose는 우리가 만든 schema에 맞지 않는 값은 자동으로 무시
+      res.status(201).send(newShortLink);
+      break;
     case "GET":
-      res.status(201).send({
-        title: "nextJs",
-        url: "fasd",
-      });
+      const shortLinks = await ShortLink.find();
+      res.status(200).send(shortLinks);
       break;
   }
 }
